@@ -1,0 +1,60 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Persegi p = new Persegi();
+        Segitiga s = new Segitiga();
+        Lingkaran l = new Lingkaran();
+        int smk = input.nextInt();
+        
+        switch (smk) {
+            case 1:
+                int sisi = input.nextInt();
+                p.getLuas(sisi);
+                break;
+            case 2:
+                int alas = input.nextInt();
+                int tinggi = input.nextInt();
+                s.getLuas(alas, tinggi);
+                break;
+            case 3:
+                int jari = input.nextInt();
+                l.getLuas(jari);
+                break;
+            default:
+                System.out.println("Input yang anda masukan tidak sesuai");     
+                break;
+        }
+    }
+}
+
+
+class Persegi{
+    void getLuas(int sisi){
+        int luas = sisi*sisi;
+        System.out.println(luas);
+    }
+}
+
+class Segitiga{
+    void getLuas(int alas, int tinggi){
+        int luas = (alas*tinggi)/2;
+        System.out.println(luas);
+    }
+}
+
+class Lingkaran{
+    void getLuas(int jari){
+        if(jari % 7 == 0){
+            double luas = 22/7*Math.pow(jari, 2);
+            int hasil = (int)luas;
+            System.out.print((double)hasil);
+        }else{
+            double luas = 3.14*Math.pow(jari, 2);
+            int hasil = (int)luas;
+            System.out.print((double)hasil);
+        }
+    }
+}
